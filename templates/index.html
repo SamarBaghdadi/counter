@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>counter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    />
+  </head>
+  <body>
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">
+          Hello, this page is intended to practice SESSION persistance
+        </h1>
+      </div>
+    </section>
+    <div class="container">
+      <h1 class="jumbotron-heading text-center">Counter</h1>
+      <h2 class="jumbotron-heading text-center">{{session['count']}}</h2>
+      <h1 class="jumbotron-heading text-center">Page visited</h1>
+      <h2 class="jumbotron-heading text-center">{{session['visited']}}</h2>
+    </div>
+    <div class="container-samar">
+      <form action="/2button" method="post">
+        <button class="btn btn-warning" type="submit">+2 buttons</button>
+      </form>
+      <form action="/destroy_session" method="post">
+        <button class="btn btn-danger" type="submit">Reset</button>
+      </form>
+    </div>
+    <div class="container">
+      <form action="/set_incrementer" method="post">
+        <label for="increment">set the increment cadency:</label>
+        <input type="text" name="increment" value="0" />
+        <button type="submit" class="btn btn-primary">Incrementer</button>
+      </form>
+    </div>
+  </body>
+</html>
